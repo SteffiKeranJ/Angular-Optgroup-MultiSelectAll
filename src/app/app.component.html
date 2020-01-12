@@ -1,0 +1,13 @@
+<mat-list-item class="primary-imenu-item" role="listitem">
+	<mat-form-field class="select-form">
+		<mat-select placeholder="Years" name="year" class="filter-select" [(ngModel)]="selectedYears"
+			[compareWith]="equals" multiple #yearSelect="ngModel" (selectionChange)="optionchg()">
+			 <mat-option disabled="disabled" class="filter-option">
+             <mat-checkbox (change)="selectAll(checkAll.checked, yearSelect, years)" [(ngModel)]="checked" [(indeterminate)]="indeterminate" #checkAll> Years</mat-checkbox>
+          </mat-option>
+          <mat-option *ngFor="let year of years" [value]="year">
+            {{year.viewValue}}
+          </mat-option>
+		</mat-select>
+	</mat-form-field>
+</mat-list-item>
